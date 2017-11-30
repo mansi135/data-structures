@@ -17,8 +17,10 @@ var Stack = function() {
     if (index === 0) {
       return null;
     }
-    var lastValue =  storage[index-1];
+    var lastValue = storage[index - 1];
+    delete storage[index - 1];    
     index--;
+    
     return lastValue;
   };
 

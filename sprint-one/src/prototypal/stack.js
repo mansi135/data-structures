@@ -21,6 +21,7 @@ stackMethods.pop = function() {
 		return null;
 	}
 	var lastValue = this.storage[this.index-1];
+  delete this.storage[this.index-1];
 	this.index--;
 	return lastValue;
 

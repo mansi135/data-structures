@@ -9,25 +9,26 @@ var Stack = function() {
   // someInstance.pop = stackMethods.pop;
   // someInstance.size = stackMethods.size;
 
-  _.extend(someInstance,stackMethods);
+  _.extend(someInstance, stackMethods);
 
   return someInstance;
 
 };
 
 var stackMethods = {
-	push : function(value) {
+	push: function(value) {
     // if key not in storage, push
     this.storage[this.index] = value;
     this.index++;
   },
 
-  pop : function() {
+  pop: function() {
     // need to pop out the last value
     if (this.index === 0) {
       return null;
     }
-    var lastValue =  this.storage[this.index-1];
+    var lastValue = this.storage[this.index - 1];
+    delete this.storage[this.index - 1];
     this.index--;
     return lastValue;
   },
