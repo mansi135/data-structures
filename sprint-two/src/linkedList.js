@@ -20,12 +20,31 @@ var LinkedList = function() {
     // case 1: when head == null , print a error msg that list is empty
     // case 2 : when head is not null : move head to next node and delete current head
     // case 3 : when there are 2 properties(head and tail), then make head = tail
-  
+    // case 3 looks similar to case 2
+    if (list.head === null) {
+      return null;
+    }
+    var headValue = list.head.value;
+    var temp = list.head;
+    delete list.head;
+    list.head = temp.next;
+    // delete that object somehow ! //check if this is correct
+
+    return headValue;
 
 
   };
 
   list.contains = function(target) {
+    var temp = list.head;
+    while (temp !== null) {
+      if (temp.value === target) {
+        return true;
+      } else {
+        temp = temp.next;
+      }
+    }
+    return false;
   };
 
   return list;
