@@ -8,14 +8,17 @@ var HashTable = function() {
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
+  
   if (bucket === undefined) {
-  	this._storage.set(index,{k : v});
+  	this._storage.set(index,[[k,v]]);
   } else {
-  	if(k in bucket) {
-  		bucket[k] = v;
-  	} else {
-  		bucket[k] = v;
-  	}
+  	for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+        bucket[i][1] = v;
+      } else {
+        bucket.push([k,v]);
+      }
+    }
   }
 
   
@@ -24,24 +27,26 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
- // if (k in bucket) {
-  return bucket[k];
-  // }
-  // else
-  // 	return null;
-// if (bucket === undefined) {
-//   	return null;
-//   }
-//   else 
+ 
+  if (bucket) {
+    for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+        return bucket[i][1];
+      }
+    }
+  }
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
   if(bucket) {
-  	if(k in bucket) {
-  		delete bucket[k];
-  	}
+  	for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+          bucket.splice(i,1);
+          break;
+      }
+    }
   }
 };
 
