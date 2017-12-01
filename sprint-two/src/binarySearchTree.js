@@ -48,20 +48,23 @@ var BinarySearchTree = function(value) {
 
   
 
-  bst.depthFirstLog = function(callback,node) {
+  bst.depthFirstLog = function(callback) {
     
     
-    if(node !== null) {
-      callback(node.value) ;
-    }
-    
-    if (node.left !== null) {
-      bst.depthFirstLog(callback, node.left);
+    var innerDFS = function(callback, node) {
+        if(node !== null) {
+          callback(node.value) ;
+        }
+        if (node.left !== null) {
+          innerDFS(callback, node.left);
+        }
+        if (node.right !== null) {
+          innerDFS(callback, node.right);
+        }
     }
 
-    if (node.right !== null) {
-      bst.depthFirstLog(callback, node.right);
-    }
+    innerDFS(callback, this);
+    
   
   };
 
