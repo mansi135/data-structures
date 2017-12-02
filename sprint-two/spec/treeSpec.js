@@ -41,4 +41,10 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  //New test :
+  
+  it('should not contain any value in an empty tree', function() {
+    expect(tree.contains(16)).to.equal(false);
+  });
+
 });

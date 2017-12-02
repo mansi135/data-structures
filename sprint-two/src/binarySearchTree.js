@@ -50,10 +50,9 @@ var BinarySearchTree = function(value) {
 
   bst.depthFirstLog = function(callback) {
     
-    
     var innerDFS = function(callback, node) {
         if(node !== null) {
-          callback(node.value) ;
+          callback(node.value);
         }
         if (node.left !== null) {
           innerDFS(callback, node.left);
@@ -81,4 +80,8 @@ var NodeT = function(value) {
 };
 /*
  * Complexity: What is the time complexity of the above functions?
+                        WORST CASE   AVERAGE CASE
+  .insertRecursively      O(n)          log(n) 
+  .contains               O(n)          log(n)
+  .depthFirstLog          O(n)          log(n)
  */

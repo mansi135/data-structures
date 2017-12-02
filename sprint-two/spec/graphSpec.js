@@ -68,4 +68,22 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  //New Tests ->
+  it('should not override an exisiting node', function() {
+    graph.addNode(4);    
+    graph.addNode(3);
+    graph.addEdge(4, 3);
+    graph.addNode(4); 
+    expect(graph.hasEdge(4, 3)).to.equal(true);
+  });
+
+  it('should not do anything while trying to remove the same node more than once', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.removeNode(5);
+    graph.removeNode(5);
+    expect(graph.hasEdge(4, 5)).to.equal(false);
+  });
+  
 });

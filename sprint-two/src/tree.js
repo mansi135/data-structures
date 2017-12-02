@@ -61,4 +61,9 @@ treeMethods.contains = function(target, node) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+  
+  worst case complexity of addChild method : O(1)
+  
+  worst case complexity of contains method : O(n)
  */

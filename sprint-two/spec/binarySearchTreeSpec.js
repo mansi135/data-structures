@@ -37,4 +37,17 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+//New test
+
+  it('should be able to add duplicate values on left hand side of the tree ', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(2);
+    console.log(binarySearchTree);
+    expect(binarySearchTree.contains(2)).to.equal(true);
+  });
+
+
 });

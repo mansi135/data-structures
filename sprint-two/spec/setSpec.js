@@ -24,4 +24,11 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should count the size of the storage', function() {
+    set.add('Satoshi Takeda');
+    set.add('Mansi');
+    expect(set.size()).to.equal(2);
+  });
+
+
 });
