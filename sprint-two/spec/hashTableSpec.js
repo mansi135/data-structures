@@ -47,6 +47,11 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  // New Test-
+  it('should not return anything if we try to remove from an empty hashtable', function() {
+    hashTable.remove('Steven');
+    expect(hashTable.retrieve('Steven')).to.equal(undefined);
+  });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {

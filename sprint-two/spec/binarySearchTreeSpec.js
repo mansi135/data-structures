@@ -45,7 +45,7 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(7);
     binarySearchTree.insert(1);
     binarySearchTree.insert(2);
-    console.log(binarySearchTree);
+   // console.log(binarySearchTree);
     expect(binarySearchTree.contains(2)).to.equal(true);
   });
 
