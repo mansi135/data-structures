@@ -37,6 +37,7 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
 //New test
 
   it('should be able to add duplicate values on left hand side of the tree ', function() {
@@ -47,6 +48,16 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(2);
    // console.log(binarySearchTree);
     expect(binarySearchTree.contains(2)).to.equal(true);
+  });
+
+  it('should execute a callback on every value in a tree using "breadthFirstLog"', function() {
+    var array = [];
+    var func = function(value) { value *= 2; array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.breadthFirstLog(func);
+    expect(array).to.eql([10, 4, 14, 6]);
   });
 
 
